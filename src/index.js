@@ -20,23 +20,22 @@ let todos = [
 function renderTodoApp() {
   let app = document.querySelector("#app");
   let h1 = document.createElement("h1");
-  document.body.append(h1);
-
-for (let i = 0; i< todo.length; i++){
-    const todoList = todos[i]
-    let list = `
-    <li class='todo-item'>
-        <p>${todoList.completed}</p>
-
-        <p>${todoList.description}</p>
-    </li>
-    `
-
+  let todoList = document.createElement("ul");
   h1.innerText = "Todo List";
+  app.appendChild(h1);
+  app.appendChild(todoList);
 
-  document.app.appendChild(h1);
-  <h1>Todo List</h1>
-  
+  for (let i = 0; i < todos.length; i++) {
+    let todoItems = todos[i];
+     let stateOfBox = todoItems.completed ? "checked": "";
+        let todoMarkup = `
+    <li><input type="checkbox" ${stateOfBox}/>${todoItems.description}
+    </li>
+
+    `;
+    todoList.innerHTML += todoMarkup;
+
+  }
 }
 
 renderTodoApp();
